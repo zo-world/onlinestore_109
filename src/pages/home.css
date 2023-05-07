@@ -1,0 +1,75 @@
+.home {
+  background-color: #fcfcdf;
+  font-family: 'Segoe UI', Tahoma;
+  padding-top: 30px;
+  }
+  
+  .home h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: center;
+  }
+  
+  .home p {
+  text-align: center;
+  }
+  
+  .home h4 {
+  margin-top: 110px;
+  text-align: center;
+  font-weight: 100;
+  }
+  
+  .home-page .top-banner img {
+  width: 100%;
+  height: 600px;
+  }
+  
+  .home-page .top-banner-text {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  }
+  
+  .home-page .top-banner-text h1 {
+  font-size: 80px;
+  font-family: "Lobster", cursive;
+  text-align: center;
+  }
+  
+  .home-page .top-banner-text h2 {
+  margin-top: -20px;
+  color: rgb(22, 94, 106);
+  font-family: "Shadows Into Light", cursive;
+  text-align: center;
+  }
+  
+  .home-page .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 0;
+  }
+  
+  .home-page .left {
+  flex: 1;
+  padding-right: 50px;
+  text-align: center;
+  }
+  
+  .home-page .left h4 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  }
+  
+  .home-page .right {
+  flex: 1;
+  text-align: center;
+  }
+  
+  .home-page .right img {
+  width: 100%;
+  max-width: 600px;
+  }

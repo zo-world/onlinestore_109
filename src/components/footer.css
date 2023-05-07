@@ -1,0 +1,12 @@
+.footer {
+  background-color: rgb(173, 187, 187);
+    border-top: 1px solid #6a6a6a;
+    padding: 15px 10px 40px 10px;
+  text-align: center;
+}
+
+.footer label {
+  text-align: center;
+  color: #4c5155;
+    text-decoration: underline;
+}

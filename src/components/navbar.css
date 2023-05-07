@@ -1,0 +1,46 @@
+.navbar {
+  background-color: rgb(13, 103, 106);
+  color: white;
+  border: none;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.btn-outline-success {
+  color: white;
+  border-color: white;
+}
+
+.btn-outline-success:hover {
+  background-color: white;
+  color: rgb(13, 103, 106);
+}
+
+.form-control {
+  background-color: rgb(249, 249, 249);
+  color: #6a6a6a;
+  border: none;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+  }
+}

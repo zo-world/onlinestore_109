@@ -1,0 +1,49 @@
+.page.catalog {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+h2 {
+  font-size: 36px;
+  text-align: center;
+}
+
+h5 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.category-filter span {
+  margin-right: 10px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-filter {
+  margin: 5px;
+}
+
+.btn-filter:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+}

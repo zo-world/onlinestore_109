@@ -1,0 +1,33 @@
+.shopping-item {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.shopping-item h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.shopping-item button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #dc3545;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .shopping-item h4 {
+    font-size: 1rem;
+  }
+
+  .shopping-item button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
