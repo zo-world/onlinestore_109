@@ -26,12 +26,9 @@ const ShoppingList = () => {
   function handleDelete(item) {
     console.log("deleting", item);
 
-    let copy = allItems.filter(x => x.name != item.name);
+    let copy = allItems.filter((x) => x.name != item.name);
     setAllItems(copy);
   }
-
-
-
 
   return (
     <div className="shopping-list">
@@ -45,9 +42,13 @@ const ShoppingList = () => {
       </div>
 
       <div className="list">
-        {allItems.map(item =>
-          <ShoppingListItem key={item.name} data={item} onDelete={handleDelete}/>
-        )}
+        {allItems.map((item) => (
+          <ShoppingListItem
+            key={item.name}
+            data={item}
+            onDelete={handleDelete}
+          />
+        ))}
       </div>
     </div>
   );

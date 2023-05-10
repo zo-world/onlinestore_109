@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./admin.css";
+import DataService from "../services/dataService";
 
 function Admin() {
   const [product, setProduct] = useState({});
@@ -7,6 +8,25 @@ function Admin() {
 
   const [coupon, setCoupon] = useState({});
   const [allCoupons, setAllCoupons] = useState([]);
+
+  const service = new DataService();
+
+  useEffect(function () {
+    loadProducts();
+    loadCoupons();
+  }, []);
+
+  async function loadProducts() {
+    // let service = new DataService();
+    let prods = await service.getProducts();
+    setAllProducts(prods);
+  }
+
+  async function loadCoupons() {
+    // let service = new DataService();
+    let coupons = await service.getCoupons();
+    setAllCoupons(coupons);
+  }
 
   function handleProductText(e) {
     const text = e.target.value;
@@ -20,6 +40,9 @@ function Admin() {
 
   function saveProduct() {
     console.log(product);
+    let prodToSave = { ...product };
+    prodToSave.price = parseFloat(prodToSave.price);
+    service.saveProduct(prodToSave);
 
     //create copy, modify the copy, set the copy back
     let copy = [...allProducts];
@@ -38,9 +61,26 @@ function Admin() {
 
   const saveCoupon = (e) => {
     console.log(coupon);
+    let couponToSave = { ...coupon };
+    couponToSave.discount = parseFloat(couponToSave.discount);
+    service.saveCoupon(couponToSave);
 
-    let copy = { ...allCoupons };
+    let copy = [...allCoupons];
     copy.push(coupon);
+    setAllCoupons(copy);
+  };
+
+  const deleteCoupon = (code) => {
+    /**
+     * call a deleteCoupon function on the service and pass the code
+     * the service should call a DELETE request to /api/coupons/qwerty
+     *
+     * on the server create the DELETE endpoint that catches the code from the URL
+     * and use it to delete a record from the database
+     */
+    service.deleteCoupon(code);
+
+    let copy = allCoupons.filter((c) => c.code != code);
     setAllCoupons(copy);
   };
 
@@ -109,7 +149,7 @@ function Admin() {
             <label className="form-label">Code</label>
             <input
               type="text"
-              name="title"
+              name="code"
               onBlur={handleCouponText}
               className="form-control"
             ></input>
@@ -119,15 +159,15 @@ function Admin() {
             <label className="form-label">Discount</label>
             <input
               type="number"
-              name="title"
-              onBlur={saveCoupon}
+              name="discount"
+              onBlur={handleCouponText}
               className="form-control"
             ></input>
           </div>
 
           <div className="mb-3 text-center">
             <button
-              onClick={saveProduct}
+              onClick={saveCoupon}
               className="btn btn-sm btn-outline-dark"
             >
               Save Coupon
@@ -137,7 +177,13 @@ function Admin() {
           <ul className="coupon-list">
             {allCoupons.map((c) => (
               <li key={c.code}>
-                {c.code} - {c.discount}
+                {c.code} - {c.discount}{" "}
+                <button
+                  onClick={() => deleteCoupon(c.code)}
+                  className="btn btn-sm btn-outline-danger"
+                >
+                  Delete
+                </button>
               </li>
             ))}
           </ul>

@@ -12,13 +12,15 @@ const Catalog = () => {
     loadCatalog();
   }, []);
 
-  function loadCatalog() {
+  async function loadCatalog() {
     let service = new DataService();
-    let prods = service.getProducts();
+
+    let prods = await service.getProducts();
     setProducts(prods);
-    let cats = ["Fruit", "Canned"];
-    setCategory(cats);
     setProdsToDisplay(prods);
+
+    let cats = await service.getCategories();
+    setCategory(cats);
   }
 
   function filter(category) {
