@@ -31,17 +31,29 @@ function Cart() {
         <tbody>
           {cart.map((prod) => (
             <tr key={prod._id}>
-              <td><img src={"/images/" + prod.image} alt="" /></td>
-              <td><h6>{prod.title}</h6></td>
-              <td><p>{prod.quantity}</p></td>
-              <td><label>${prod.price * prod.quantity}</label></td>
-              <td><button onClick={() => removeProductFromCart(prod._id)}>Delete</button></td>
+              <td>
+                <img src={"/images/" + prod.image} alt="" />
+              </td>
+              <td>
+                <h6>{prod.title}</h6>
+              </td>
+              <td>
+                <p>{prod.quantity}</p>
+              </td>
+              <td>
+                <label>${(prod.price * prod.quantity).toFixed(2)}</label>
+              </td>
+              <td>
+                <button onClick={() => removeProductFromCart(prod._id)}>
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  )
+  );
 }
 
 export default Cart;

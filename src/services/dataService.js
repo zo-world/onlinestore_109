@@ -69,6 +69,21 @@ class DataService {
 
   async saveProduct(prod) {
     let results = await axios.post(this.serverURL + "/api/catalog", prod);
+    return results.data;
+  }
+
+  async deleteProduct(title) {
+    let results = await axios.delete(
+      this.serverURL + "/api/products/" + title
+    );
+    return results.data;
+  }
+  
+  async deleteProductById(id) {
+    let results = await axios.delete(
+      this.serverURL + "/api/products/byid/" + id
+    );
+    return results.data;
   }
 
   async saveCoupon(coupon) {

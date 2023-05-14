@@ -46,9 +46,14 @@ function Admin() {
 
     //create copy, modify the copy, set the copy back
     let copy = [...allProducts];
-    copy.push(product);
+    copy.push(prodToSave);
     setAllProducts(copy);
   }
+
+  const deleteProductById = (_id) => {
+    service.deleteProductById(_id);
+    setAllProducts(allProducts.filter((p) => p._id !== _id));
+  };
 
   const handleCouponText = (e) => {
     const value = e.target.value;
@@ -66,7 +71,7 @@ function Admin() {
     service.saveCoupon(couponToSave);
 
     let copy = [...allCoupons];
-    copy.push(coupon);
+    copy.push(couponToSave);
     setAllCoupons(copy);
   };
 
@@ -137,7 +142,17 @@ function Admin() {
 
           <ul className="prod-list">
             {allProducts.map((prod) => (
-              <li key={prod.title}>{prod.title}</li>
+              <li className="item" key={prod.title}>
+                <span>
+                  {prod.title} ${prod.price.toFixed(2)}
+                </span>
+                <button
+                  onClick={() => deleteProductById(prod._id)}
+                  className="btn btn-sm btn-outline-danger"
+                >
+                  Delete
+                </button>
+              </li>
             ))}
           </ul>
         </section>
